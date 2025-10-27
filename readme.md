@@ -83,7 +83,7 @@ Ovi podaci se učitavaju u memoriju pri pokretanju aplikacije, tako da aplikacij
 
 ## 🧑‍💻 Tehnologije
 
-- **Java 17+**
+- **Java version 25**
 - **Spring Boot**
 - **Thymeleaf**
 - **HTML5 / CSS3**
