@@ -1,72 +1,11 @@
 <!DOCTYPE html>
-<style>
-    body {
-        font-family: 'Segoe UI', Roboto, sans-serif;
-        background-color: #f6f8fa;
-        margin: 0;
-        padding: 0;
-    }
-
-    header {
-        background-color: #4b79a1;
-        color: white;
-        padding: 1rem 2rem;
-        text-align: center;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    main {
-        max-width: 900px;
-        margin: 2rem auto;
-        background-color: white;
-        padding: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 1rem;
-    }
-
-    th, td {
-        text-align: left;
-        padding: 0.75rem;
-    }
-
-    th {
-        background-color: #4b79a1;
-        color: white;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f2f6fa;
-    }
-
-    a.button {
-        display: inline-block;
-        background-color: #4b79a1;
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: 0.2s;
-    }
-
-    a.button:hover {
-        background-color: #35516d;
-    }
-
-    footer {
-        text-align: center;
-        margin-top: 3rem;
-        color: #777;
-    }
-</style>
 
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+
+    <link rel="stylesheet" th:href="@{/styles/style.css}" href="/styles/style.css">
+
+
     <title>Author's Books</title>
 </head>
 <body>
