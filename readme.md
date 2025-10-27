@@ -90,5 +90,9 @@ Ovi podaci se učitavaju u memoriju pri pokretanju aplikacije, tako da aplikacij
 - **In-memory demo podaci**
 
 ---
+##  Slika
+<img width="2559" height="1439" alt="image" src="https://github.com/user-attachments/assets/233af494-35b9-4290-a0f5-8bff9a43d20a" />
+
+---
 
 📅 *Projekat izrađen za potrebe vježbe: Primjena MVC arhitekture u Spring Bootu.*
