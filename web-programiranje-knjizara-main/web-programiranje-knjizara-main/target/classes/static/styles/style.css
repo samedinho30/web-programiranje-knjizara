@@ -1,0 +1,224 @@
+/* === KNJIŽARA – STIL ZA listA, listB I action STRANICE === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Reset i osnova */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #dbeafe, #eff6ff);
+    color: #1e3a8a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 200px;
+    margin-left: 10%;
+    margin-right: 10%;
+    animation: fadeInBody 1.5s ease-in-out;
+}
+
+/* === Animacija pojavljivanja cijele stranice === */
+@keyframes fadeInBody {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === NASLOV === */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    color: #1e40af;
+    font-weight: 600;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    animation: glowText 2s infinite alternate;
+}
+
+@keyframes glowText {
+    from { text-shadow: 0 0 10px #93c5fd, 0 0 20px #3b82f6; }
+    to { text-shadow: 0 0 20px #2563eb, 0 0 40px #1d4ed8; }
+}
+
+/* === KONTEJNER === */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    margin-top: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    animation: fadeIn 1s ease-out;
+}
+
+/* === TABELE === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 25px 0;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+th, td {
+    padding: 14px 18px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+th {
+    background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+td {
+    color: #1e3a8a;
+    font-size: 1rem;
+}
+
+/* Hover efekat redova */
+tr:hover td {
+    background: #eff6ff;
+    transform: scale(1.01);
+    box-shadow: inset 0 0 8px rgba(59, 130, 246, 0.2);
+}
+
+/* === FORME (za action.html) === */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+input, select, textarea {
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1.5px solid #c5c5c5;
+    font-size: 1rem;
+    transition: 0.25s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #325eff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(50, 94, 255, 0.3);
+}
+
+/* === DUGMAD / LINKOVI === */
+a, button, .btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+
+}
+
+a:hover, button:hover, .btn:hover {
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.6);
+    transform: translateY(-3px);
+}
+
+button:active, a:active, .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+}
+
+/* === KARTICE === */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    padding: 22px;
+    transition: all 0.3s ease;
+    border-top: 5px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #325eff;
+}
+
+.card h3 {
+    color: #1d2b5a;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #444;
+}
+
+/* === FOOTER === */
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* === ANIMACIJE === */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
