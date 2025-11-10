@@ -1,32 +1,35 @@
 package org.example.knjizara.model;
 
-import java.util.ArrayList;
+import jakarta.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "authors")
 public class Author {
-    private Long id;
-    private String name;
-    private String nationality;
-    private int birthYear;
-    private String email;
-    private List<Book> books = new ArrayList<>();
 
-    public Author(Long id, String name, String nationality, int birthYear, String email) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    @OneToMany(mappedBy = "author") // mappedBy se odnosi na polje "author" u Book
+    private List<Book> books;
+
+    public Author() {}
+
+    public Author(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.nationality = nationality;
-        this.birthYear = birthYear;
-        this.email = email;
     }
 
+    // Getteri i setteri
     public Long getId() { return id; }
-    public String getName() { return name; }
-    public String getNationality() { return nationality; }
-    public int getBirthYear() { return birthYear; }
-    public String getEmail() { return email; }
-    public List<Book> getBooks() { return books; }
+    public void setId(Long id) { this.id = id; }
 
-    public void addBook(Book book) {
-        books.add(book);
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public List<Book> getBooks() { return books; }
+    public void setBooks(List<Book> books) { this.books = books; }
 }
