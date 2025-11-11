@@ -75,13 +75,6 @@ Svaka knjiga (`Book`) ima jednog autora (`Author`), a svaka recenzija (`Review`)
 | Endpoint | Metoda | Opis |
 |----------|--------|------|
 | `/api/authors` | GET | Preuzmi sve autore u JSON formatu |
-| `/api/authors/{id}` | GET | Preuzmi autora po ID-u |
-| `/api/books` | GET | Preuzmi sve knjige u JSON formatu |
-| `/api/reviews` | GET | Preuzmi sve recenzije u JSON formatu |
-| `/api/reviews` | POST | Kreiraj novu recenziju |
-| `/api/reviews/{id}` | GET | Preuzmi recenziju po ID-u |
-| `/api/reviews/{id}` | PUT | Ažuriraj recenziju |
-| `/api/reviews/{id}` | DELETE | Obriši recenziju |
 
 ---
 
