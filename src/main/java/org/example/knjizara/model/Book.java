@@ -1,7 +1,11 @@
 package org.example.knjizara.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 @Table(name = "books")
 public class Book {
@@ -16,10 +20,16 @@ public class Book {
     private double price;
 
     @ManyToOne
-    @JoinColumn(name = "author_id")  // FK kolona u tabeli books
+    @JoinColumn(name = "author_id")
+    @JsonIgnoreProperties("author")
     private Author author;
 
-    public Book() {} // JPA zahtijeva prazan konstruktor
+    @JsonIgnore
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("book")
+    private List<Review> reviews;
+
+    public Book() {}
 
     public Book(Long id, String title, String genre, int year, double price, Author author) {
         this.id = id;
@@ -48,4 +58,7 @@ public class Book {
 
     public Author getAuthor() { return author; }
     public void setAuthor(Author author) { this.author = author; }
+
+    public List<Review> getReviews() { return reviews; }
+    public void setReviews(List<Review> reviews) { this.reviews = reviews; }
 }

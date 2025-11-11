@@ -1,10 +1,11 @@
 package org.example.knjizara.data;
 
-
 import org.example.knjizara.model.Author;
 import org.example.knjizara.model.Book;
+import org.example.knjizara.model.Review;
 import org.example.knjizara.repository.AuthorRepository;
 import org.example.knjizara.repository.BookRepository;
+import org.example.knjizara.repository.ReviewRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,24 +14,36 @@ public class DemoData implements CommandLineRunner {
 
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
+    private final ReviewRepository reviewRepository;
 
-    public DemoData(AuthorRepository authorRepository, BookRepository bookRepository) {
+    public DemoData(AuthorRepository authorRepository, BookRepository bookRepository, ReviewRepository reviewRepository) {
         this.authorRepository = authorRepository;
         this.bookRepository = bookRepository;
+        this.reviewRepository = reviewRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        // Kreiraj autore
+        // Check if authors already exist to prevent duplicate data on restart
+        if (authorRepository.findAll().size() > 0) {
+            return; // Data already exists, skip loading
+        }
+
         Author a1 = new Author();
         a1.setName("George Orwell");
+        a1.setNationality("British");
+        a1.setBirthYear(1903);
+        a1.setEmail("george@example.com");
         authorRepository.save(a1);
 
         Author a2 = new Author();
         a2.setName("J.K. Rowling");
+        a2.setNationality("British");
+        a2.setBirthYear(1965);
+        a2.setEmail("jk@example.com");
         authorRepository.save(a2);
 
-        // Kreiraj knjige i poveži s autorima
+        // Kreiraj knjige
         Book b1 = new Book();
         b1.setTitle("1984");
         b1.setGenre("Dystopian");
@@ -62,7 +75,17 @@ public class DemoData implements CommandLineRunner {
         b4.setPrice(15.99);
         b4.setAuthor(a2);
         bookRepository.save(b4);
+
+        Review r1 = new Review("John Smith", 5, "Amazing dystopian novel!", 2024, b1);
+        reviewRepository.save(r1);
+
+        Review r2 = new Review("Jane Doe", 4, "Great allegory about power.", 2024, b2);
+        reviewRepository.save(r2);
+
+        Review r3 = new Review("Mark Wilson", 5, "Best fantasy series ever!", 2024, b3);
+        reviewRepository.save(r3);
+
+        Review r4 = new Review("Sarah Connor", 4, "Excellent continuation of the story.", 2024, b4);
+        reviewRepository.save(r4);
     }
 }
-
-

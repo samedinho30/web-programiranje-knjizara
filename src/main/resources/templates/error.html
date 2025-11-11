@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" th:href="@{/styles/style.css}" href="/styles/style.css">
+</head>
+<body>
+<div class="error-box">
+    <h2>ERROR 404 Bitcoin MAjner</h2>
+    <p th:if="${error}" th:text="${error}">An error occurred.</p>
+    <p><a href="/">← Back to Home</a></p>
+</div>
+</body>
+</html>

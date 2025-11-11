@@ -125,7 +125,7 @@ a, button, .btn {
     display: inline-block;
     background: linear-gradient(90deg, #1d4ed8, #3b82f6);
     color: white;
-    padding: 12px 24px;
+    padding: 12px 40px;
     border-radius: 10px;
     text-decoration: none;
     font-weight: 500;
@@ -147,7 +147,6 @@ button:active, a:active, .btn:active {
     box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
 }
 
-/* === KARTICE === */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -179,7 +178,7 @@ button:active, a:active, .btn:active {
     color: #444;
 }
 
-/* === FOOTER === */
+
 footer {
     margin-top: auto;
     text-align: center;
@@ -188,7 +187,7 @@ footer {
     color: #555;
 }
 
-/* === ANIMACIJE === */
+
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
@@ -199,7 +198,7 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* === RESPONSIVE === */
+
 @media (max-width: 768px) {
     .container {
         padding: 20px;
