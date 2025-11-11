@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details</title>
+    <link rel="stylesheet" th:href="@{/styles/style.css}" href="/styles/style.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .book-info { background-color: #f0f0f0; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+        .book-info h1 { margin-top: 0; }
+        .book-info p { margin: 8px 0; }
+        .reviews-section { margin-top: 30px; }
+        .review { background-color: #fffbf0; padding: 15px; margin: 10px 0; border-left: 4px solid #ff9800; }
+        .review-header { font-weight: bold; }
+        .review-rating { color: #ff9800; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #FF9800; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+
+        button:hover { background-color: #e68900; }
+        .back-link { margin: 20px 0; }
+    </style>
+</head>
+<body>
+<p class="back-link"><a href="/books">← Back to Books</a></p>
+
+<div class="book-info">
+    <h1 th:text="${book.title}"></h1>
+    <p><strong>Author:</strong> <a th:href="@{'/authors/' + ${book.author.id}}" th:text="${book.author.name}"></a></p>
+    <p><strong>Genre:</strong> <span th:text="${book.genre}"></span></p>
+    <p><strong>Year Published:</strong> <span th:text="${book.year}"></span></p>
+    <p><strong>Price:</strong> <span th:text="${'$' + book.price}"></span></p>
+    <p>
+        <!-- Changed link from /books/edit/ to /books/{id}/edit -->
+        <a href="#" th:href="@{'/books/' + ${book.id} + '/edit'}">Edit Book</a>
+    </p>
+</div>
+
+<div class="reviews-section">
+    <h2>Reviews</h2>
+    <!-- Changed link from /reviews/new/ to /books/{id}/reviews/new -->
+    <p><a href="#" th:href="@{'/books/' + ${book.id} + '/reviews/new'}"><strong>+ Add Review</strong></a></p>
+
+    <div th:if="${reviews.size() > 0}">
+        <div class="review" th:each="review : ${reviews}">
+            <div class="review-header" th:text="${review.reviewerName}"></div>
+            <div class="review-rating">Rating: <span th:text="${review.rating}"></span> / 5</div>
+            <p th:text="${review.comment}"></p>
+            <small th:text="${review.year}"></small>
+            <br>
+            <!-- Changed links from /reviews/edit/ and /reviews/delete/ to /reviews/{id}/edit and /reviews/{id}/delete -->
+            <a href="#" th:href="@{'/reviews/' + ${review.id} + '/edit'}">Edit</a> |
+            <a href="#" th:href="@{'/reviews/' + ${review.id} + '/delete'}">Delete</a>
+        </div>
+    </div>
+    <p th:if="${reviews.size() == 0}">No reviews yet. <a href="#" th:href="@{'/books/' + ${book.id} + '/reviews/new'}">Add one!</a></p>
+</div>
+</body>
+</html>

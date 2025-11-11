@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookstore - Home</title>
+    <link rel="stylesheet" th:href="@{/styles/style.css}" href="/styles/style.css">
+    <style>
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background-color: #333;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .nav-menu a, .nav-menu button {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #555;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .nav-menu a:hover, .nav-menu button:hover {
+            background-color: #777;
+        }
+
+        /* New Review button styling */
+        .nav-menu .new-review-btn {
+            background-color: #4CAF50;
+        }
+        .nav-menu .new-review-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 400px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+        }
+
+        .modal-content input,
+        .modal-content textarea,
+        .modal-content select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .modal-content label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .modal-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .modal-buttons button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-cancel {
+            background-color: #888;
+            color: white;
+        }
+
+        .btn-cancel:hover {
+            background-color: #666;
+        }
+
+        .message {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+    </style>
+</head>
+<body>
+<div class="nav-menu">
+    <a href="/authors">Authors</a>
+    <a href="/books">Books</a>
+    <a href="/authors/new">Add Author</a>
+    <a href="/books/new">Add Book</a>
+    <a href="/api/authors">View AllAuthorsJSON</a>
+
+</div>
+
+
+</div>
+</body>
+</html>

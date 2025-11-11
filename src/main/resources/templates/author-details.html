@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Author Details</title>
+    <link rel="stylesheet" th:href="@{/styles/style.css}" href="/styles/style.css">
+</head>
+<body>
+<p class="back-link"><a href="/authors">← Back to Authors</a></p>
+
+<div class="author-info">
+    <h1 th:text="${author.name}"></h1>
+    <p><strong>Nationality:</strong> <span th:text="${author.nationality}"></span></p>
+    <p><strong>Birth Year:</strong> <span th:text="${author.birthYear}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${author.email}"></span></p>
+</div>
+
+<h2>Books by this Author</h2>
+<table th:if="${books.size() > 0}">
+    <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Year</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.genre}"></td>
+        <td th:text="${book.year}"></td>
+        <td th:text="${'$' + book.price}"></td>
+        <td><a th:href="@{'/books/' + ${book.id}}">View Details</a></td>
+    </tr>
+</table>
+<p th:if="${books.size() == 0}">No books found for this author.</p>
+</body>
+</html>

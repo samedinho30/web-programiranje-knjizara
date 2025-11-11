@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Authors List</title>
+    <link rel="stylesheet" th:href="@{/styles/style.css}" href="/styles/style.css">
+</head>
+<body>
+<h1>Authors List</h1>
+<p style="padding:50px" class="back-link"><a href="/">← Back to Home</a></p>
+<p><a href="/authors/new" class="action-btn"><strong>+ Add New Author</strong></a></p>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Nationality</th>
+        <th>Birth Year</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="author : ${authors}">
+        <td th:text="${author.name}"></td>
+        <td th:text="${author.nationality}"></td>
+        <td th:text="${author.birthYear}"></td>
+        <td th:text="${author.email}"></td>
+        <td>
+            <a th:href="@{'/authors/' + ${author.id}}" class="action-btn">View Books</a>
+            <!-- updated edit link to use /authors/edit/{id} endpoint -->
+            <a th:href="@{'/authors/' + ${author.id} + '/edit'}" class="action-btn">Edit</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
