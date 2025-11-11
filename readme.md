@@ -64,11 +64,11 @@ Svaka knjiga (`Book`) ima jednog autora (`Author`), a svaka recenzija (`Review`)
 | Ruta                      | Opis |
 |---------------------------|------|
 | `/`                       | Početna stranica |
-| `/autori`                 | Prikaz liste autora |
-| `/knjige`                 | Prikaz liste knjiga |
-| `/autori/autoriPoId/{id}` | Prikaz svih knjiga odabranog autora |
-| `/recenzije`              | Prikaz liste recenzija |
-| `/recenzije/id/{id}`      | Pregled recenzije po ID-u |
+| `/authors`                 | Prikaz liste autora |
+| `/books`                 | Prikaz liste knjiga |
+| `/authors/authorsByID/{id}` | Prikaz svih knjiga odabranog autora |
+| `/reviews`              | Prikaz liste recenzija |
+| `/reviews/id/{id}`      | Pregled recenzije po ID-u |
 
 ### 📡 REST API Endpoints
 
