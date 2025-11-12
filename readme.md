@@ -1,8 +1,8 @@
 # 📚 Online Bookstore — Spring Boot MVC Demo
 
 ### 👥 Članovi tima
-- **Student A:** [Eldar Alić]
-- **Student B:** [Samed Zelkanović]
+- Eldar Alić
+- Samed Zelkanović
 
 ---
 
@@ -103,22 +103,8 @@ Ovi podaci se učitavaju u memoriju pri pokretanju aplikacije, tako da aplikacij
 2. Pokreni klasu `KnjizaraApplication` kao **Spring Boot Application**.
 3. Otvori u pregledniku:
     - [http://localhost:8080/](http://localhost:8080/) — početna stranica
-    - [http://localhost:8080/autori](http://localhost:8080/autori) — lista autora
-    - [http://localhost:8080/knjige](http://localhost:8080/knjige) — lista knjiga
-    - [http://localhost:8080/recenzije](http://localhost:8080/recenzije) — lista recenzija
-
----
-
-## 🧑‍💻 Tehnologije
-
-- **Java version 25**
-- **Spring Boot**
-- **Spring REST API**
-- **Thymeleaf**
-- **HTML5 / CSS3**
-- **In-memory demo podaci**
-- **Jackson** (za JSON serijalizaciju)
-
+    - [http://localhost:8080/autori](http://localhost:8080/authors) — lista autora
+    - [http://localhost:8080/knjige](http://localhost:8080/books) — lista knjiga
 ---
 
 ## ✨ Nove funkcionalnosti (u odnosu na originalnu verziju)
@@ -126,51 +112,16 @@ Ovi podaci se učitavaju u memoriju pri pokretanju aplikacije, tako da aplikacij
 ### Dodane klase:
 - **`Review.java`** — Model za recenzije
 - **`ReviewService.java`** — Servis za rukovanje recenzijama
-- **`ReviewRestController.java`** — REST API kontroler za recenzije
 - **`AuthorRestController.java`** — REST API kontroler za autore
 - **`BookRestController.java`** — REST API kontroler za knjige
 
 ### Dodani REST API endpointi:
 - `/api/authors` — Pregled svih autora u JSON formatu
-- `/api/reviews` — Pregled svih recenzija u JSON formatu
-- `/api/reviews` (POST) — Dodavanje nove recenzije
-- `/api/reviews/{id}` — CRUD operacije na recenzijama
 
 ### Dodane HTML stranice:
 - **index.html** — Početna stranica sa navigacijom i dugmadima za REST API
 - **review-list.html** — Lista recenzija
 - **review-form.html** — Forma za dodavanje recenzije
 - **book-details.html** — Detalji knjige sa povezanim recenzijama
-
-### Poboljšanja:
-- JSON serijalizacija sa `@JsonIgnore` i `@JsonIgnoreProperties` anotacijama
-- Sprječavanje kružnih referenci između modela
-- Modal forme za kreiranje recenzija preko REST API-ja
-- Dinamički prikaz podataka kroz JavaScript
-
----
-
-## 🔧 Primjer REST API poziva
-
-### Preuzmi sve autore:
-\`\`\`bash
-curl -X GET http://localhost:8080/api/authors
-\`\`\`
-
-### Preuzmi sve recenzije:
-\`\`\`bash
-curl -X GET http://localhost:8080/api/reviews
-\`\`\`
-
-### Kreiraj novu recenziju:
-\`\`\`bash
-curl -X POST http://localhost:8080/api/reviews \
-  -H "Content-Type: application/json" \
-  -d '{
-    "bookId": 1,
-    "content": "Odličan roman!",
-    "rating": 5
-  }'
-\`\`\`
 
 ---
